@@ -1,0 +1,12 @@
+Xây dựng hệ thống LMS để quản lý Intern
+
+Chức năng :
+
+Quản lý intern ( leader ) :
+Thêm , sửa , xóa
+Quản lý task ( leader ) :
+Thêm , sửa , xóa
+Thêm intern vào task
+Đánh giá task
+Comment ( Leader , intern ) :
+Thêm , xem
