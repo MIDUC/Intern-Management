@@ -7,5 +7,11 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "leader")
-public class Leader extends Member {
+public class Leader {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    @Column(name = "member_id")
+    private Integer member_id;
 }
