@@ -6,10 +6,11 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Table(name = "task")
+
 @Getter
 @Setter
 @Entity
+@Table(name = "task")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,5 +24,11 @@ public class Task {
 
     @Column(name = "leader_id")
     private Integer leader_id;
+
+    @Column(name = "date")
+    private Date date;
+
+    @Column(name = "status")
+    private Integer status;
 
 }

@@ -14,6 +14,11 @@ public abstract class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
 
     @Column(name = "name")
     private String name;
@@ -27,4 +32,9 @@ public abstract class Member {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "status")
+    private Integer status;
 }
