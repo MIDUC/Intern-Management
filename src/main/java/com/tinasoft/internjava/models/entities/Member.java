@@ -37,4 +37,7 @@ public class Member {
 
     @Column(name = "status")
     private Integer status;
+
+    @Column(name = "role")
+    private Integer role;
 }
