@@ -6,6 +6,8 @@ import com.tinasoft.internjava.repositories.LeaderRepository;
 import com.tinasoft.internjava.repositories.MemberRepository;
 import com.tinasoft.internjava.services.i_services.LeaderService;
 import com.tinasoft.internjava.services.i_services.MemberService;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,8 @@ public class LeaderServiceImpl implements LeaderService {
     LeaderRepository repository;
     @Autowired
     MemberService memberService;
-    @Override
+    @PersistenceContext
+    protected EntityManager entityManager;
     public void save(Leader leader){
         repository.save(leader);
     }
@@ -30,7 +33,8 @@ public class LeaderServiceImpl implements LeaderService {
     @Override
     public Member fillLeader(int leader_id) {
         Leader leader = repository.findById(leader_id).orElseThrow();
-        return memberService.findById(leader_id);
+        Member member = (Member) entityManager.createNativeQuery("SELECT * FROM member WHERE id = " + leader.getMember_id(), Member.class).getSingleResult();
+        return member;
     }
 
 }

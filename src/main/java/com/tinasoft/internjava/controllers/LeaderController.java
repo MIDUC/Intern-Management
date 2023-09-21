@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/leaders")
+@CrossOrigin
 public class LeaderController {
     @Autowired
     private LeaderService service;
@@ -17,9 +18,9 @@ public class LeaderController {
     public List<Leader> leaders(){
         return service.fillAll();
     }
-
     @GetMapping("/{id}")
     public Member leader(@PathVariable int id){
         return service.fillLeader(id);
     }
+
 }

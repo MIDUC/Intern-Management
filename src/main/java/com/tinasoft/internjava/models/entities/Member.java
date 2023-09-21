@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @Entity
@@ -37,7 +40,4 @@ public class Member {
 
     @Column(name = "status")
     private Integer status;
-
-    @Column(name = "role")
-    private Integer role;
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/tasks")
+@CrossOrigin
 public class TaskController {
     @Autowired
     private TaskService taskService;
@@ -21,15 +22,15 @@ public class TaskController {
     public Task getTask(@PathVariable Integer id){
         return taskService.get_task(id);
     }
-
+    @PostMapping("")
     public void save(@RequestBody Task task){
         taskService.save(task);
     }
-
+    @PutMapping("/{id}")
     public void update(@RequestBody Task task,@PathVariable Integer id){
         taskService.update(id,task);
     }
-
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id){
         taskService.delete(id);
     }
