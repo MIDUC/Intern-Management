@@ -18,16 +18,13 @@ public class Comment {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "date")
-    private Date date;
+    @Column(name = "time")
+    private Date time;
 
     @Column(name = "member_id")
     private Integer member_id;
 
-    @Column(name = "task_intern_id")
-    private Integer task_intern_id;
-
-    @Column(name = "intern_id")
-    private Integer intern_id;
+    @Column(name = "task_id")
+    private Integer task_id;
 
 }
