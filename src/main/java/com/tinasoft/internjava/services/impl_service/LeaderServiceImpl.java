@@ -1,11 +1,10 @@
 package com.tinasoft.internjava.services.impl_service;
 
 import com.tinasoft.internjava.models.entities.Leader;
-import com.tinasoft.internjava.models.entities.Member;
+import com.tinasoft.internjava.models.entities.User;
 import com.tinasoft.internjava.repositories.LeaderRepository;
-import com.tinasoft.internjava.repositories.MemberRepository;
 import com.tinasoft.internjava.services.i_services.LeaderService;
-import com.tinasoft.internjava.services.i_services.MemberService;
+import com.tinasoft.internjava.services.i_services.UserService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class LeaderServiceImpl implements LeaderService {
     @Autowired
     LeaderRepository repository;
     @Autowired
-    MemberService memberService;
+    UserService userService;
     @PersistenceContext
     protected EntityManager entityManager;
     public void save(Leader leader){
@@ -31,10 +30,10 @@ public class LeaderServiceImpl implements LeaderService {
     }
 
     @Override
-    public Member fillLeader(int leader_id) {
+    public User fillLeader(int leader_id) {
         Leader leader = repository.findById(leader_id).orElseThrow();
-        Member member = (Member) entityManager.createNativeQuery("SELECT * FROM member WHERE id = " + leader.getMember_id(), Member.class).getSingleResult();
-        return member;
+        User user = (User) entityManager.createNativeQuery("SELECT * FROM user WHERE id = " + leader.getUser_id(), User.class).getSingleResult();
+        return user;
     }
 
 }

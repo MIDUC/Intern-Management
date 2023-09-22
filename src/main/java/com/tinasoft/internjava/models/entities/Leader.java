@@ -10,13 +10,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "leader")
+@Table(name = "leaders")
 public class Leader {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "member_id")
-    private Integer member_id;
+    @Column(name = "user_id")
+    private Integer user_id;
 
 }

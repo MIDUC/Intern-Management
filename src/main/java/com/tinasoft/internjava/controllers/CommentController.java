@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/interns")
+@RequestMapping("api/comments")
 @CrossOrigin
-public class InternController {
+public class CommentController {
 }

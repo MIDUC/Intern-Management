@@ -8,15 +8,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "intern")
+@Table(name = "interns")
 public class Intern {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "member_id")
-    private Integer member_id;
+    @Column(name = "user_id")
+    private Integer user_id;
 
     @Column(name = "leader_id")
     private Integer leader;

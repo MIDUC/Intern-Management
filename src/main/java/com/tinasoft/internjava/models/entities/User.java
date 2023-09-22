@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "member")
-public class Member {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

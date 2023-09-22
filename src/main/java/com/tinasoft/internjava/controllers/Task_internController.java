@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/interns")
+@RequestMapping("api/task_interns")
 @CrossOrigin
-public class InternController {
+public class Task_internController {
 }
