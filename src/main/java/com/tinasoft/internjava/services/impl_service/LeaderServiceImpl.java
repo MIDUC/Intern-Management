@@ -32,7 +32,7 @@ public class LeaderServiceImpl implements LeaderService {
     @Override
     public User fillLeader(int leader_id) {
         Leader leader = repository.findById(leader_id).orElseThrow();
-        User user = (User) entityManager.createNativeQuery("SELECT * FROM user WHERE id = " + leader.getUser_id(), User.class).getSingleResult();
+        User user = (User) entityManager.createNativeQuery("SELECT * FROM users WHERE id = " + leader.getUser_id(), User.class).getSingleResult();
         return user;
     }
 
