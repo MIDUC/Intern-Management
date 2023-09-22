@@ -1,7 +1,7 @@
 package com.tinasoft.internjava.controllers;
 
 import com.tinasoft.internjava.models.entities.Leader;
-import com.tinasoft.internjava.models.entities.Member;
+import com.tinasoft.internjava.models.entities.User;
 import com.tinasoft.internjava.services.i_services.LeaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/leaders")
+@CrossOrigin
 public class LeaderController {
     @Autowired
     private LeaderService service;
@@ -17,9 +18,9 @@ public class LeaderController {
     public List<Leader> leaders(){
         return service.fillAll();
     }
-
     @GetMapping("/{id}")
-    public Member leader(@PathVariable int id){
+    public User leader(@PathVariable int id){
         return service.fillLeader(id);
     }
+
 }

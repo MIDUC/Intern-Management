@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "task_intern")
+@Table(name = "task_interns")
 public class Task_intern {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,4 +26,5 @@ public class Task_intern {
 
     @Column(name = "evaluate")
     private String evaluate;
+
 }
