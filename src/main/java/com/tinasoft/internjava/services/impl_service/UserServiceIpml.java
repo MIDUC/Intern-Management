@@ -42,7 +42,7 @@ public class UserServiceIpml implements UserService {
 
     @Override
     public String get_role(int id) {
-        String role_name = (String) entityManager.createNativeQuery("SELECT roles.name FROM roles,user_roles WHERE role.id = user_role.role_id AND user_roles.user_id = " + id).getSingleResult();
+        String role_name = (String) entityManager.createNativeQuery("SELECT roles.name FROM roles,user_roles WHERE roles.id = user_roles.role_id AND user_roles.user_id = " + id).getSingleResult();
         return role_name;
     }
 }
