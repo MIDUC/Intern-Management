@@ -1,11 +1,12 @@
 package com.tinasoft.internjava.services.impl_service;
 
-import com.tinasoft.internjava.models.entities.Task_intern;
-import com.tinasoft.internjava.repositories.TaskRepository;
-import com.tinasoft.internjava.repositories.Task_internRepository;
-import com.tinasoft.internjava.services.i_services.Task_internService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.tinasoft.internjava.models.entities.Task_intern;
+import com.tinasoft.internjava.repositories.Task_internRepository;
+import com.tinasoft.internjava.services.i_services.Task_internService;
 
 import java.util.List;
 @Service

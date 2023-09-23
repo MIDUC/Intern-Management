@@ -10,9 +10,11 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Integer id;
 
     @Column(name = "username")
@@ -36,6 +38,10 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "status")
-    private Integer status;
+    @Column(name = "role")
+    private Integer role;
+    
+    @Transient
+    private Role positon;
 }
+

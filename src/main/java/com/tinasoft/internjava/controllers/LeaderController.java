@@ -14,13 +14,18 @@ import java.util.List;
 public class LeaderController {
     @Autowired
     private LeaderService service;
+    
     @GetMapping("")
     public List<Leader> leaders(){
         return service.fillAll();
     }
     @GetMapping("/{id}")
-    public User leader(@PathVariable int id){
-        return service.fillLeader(id);
+    public User leader(@PathVariable String id){
+    	try {
+			return service.fillLeader(Integer.parseInt(id));
+		} catch (Exception e) {
+			return null;
+		}
     }
 
 }

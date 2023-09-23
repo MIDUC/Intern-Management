@@ -11,12 +11,13 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "leaders")
-public class Leader {
+@PrimaryKeyJoinColumn(name = "user_id", referencedColumnName = "user_id")
+public class Leader extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(name = "user_id")
-    private Integer user_id;
+//
+//    @Column(name = "user_id")
+//    private Integer user_id;
 
 }

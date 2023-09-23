@@ -1,6 +1,8 @@
 package com.tinasoft.internjava.services.impl_service;
 
+import com.tinasoft.internjava.models.entities.Role;
 import com.tinasoft.internjava.models.entities.User;
+import com.tinasoft.internjava.repositories.RoleRepository;
 import com.tinasoft.internjava.repositories.UserRepository;
 import com.tinasoft.internjava.services.i_services.UserService;
 import jakarta.persistence.EntityManager;
@@ -14,9 +16,19 @@ public class UserServiceIpml implements UserService {
     private UserRepository repository;
     @PersistenceContext
     EntityManager entityManager;
+    @Autowired
+    RoleRepository roleRepo;
+    
     @Override
     public User findById(int Id) {
-        return repository.findById(Id).orElseThrow();
+    	try {
+    		User user = repository.findById(Id).orElseThrow();
+        	user.setPositon(get_role(user.getRole()));
+            return user;
+		} catch (Exception e) {
+			return null;
+		}
+    	
     }
 
     @Override
@@ -41,8 +53,8 @@ public class UserServiceIpml implements UserService {
     }
 
     @Override
-    public String get_role(int id) {
-        String role_name = (String) entityManager.createNativeQuery("SELECT roles.name FROM roles,user_roles WHERE roles.id = user_roles.role_id AND user_roles.user_id = " + id).getSingleResult();
-        return role_name;
+    public Role get_role(int id) {
+        Role role =  (Role) entityManager.createNativeQuery("SELECT * FROM roles WHERE roles.id = " + id,Role.class).getSingleResult();
+        return role;
     }
 }
