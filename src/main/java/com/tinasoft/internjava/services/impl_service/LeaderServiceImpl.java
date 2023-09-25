@@ -17,8 +17,6 @@ public class LeaderServiceImpl implements LeaderService {
 
     @Autowired
     LeaderRepository repository;
-    @Autowired
-    UserService userService;
     @PersistenceContext
     protected EntityManager entityManager;
     public void save(Leader leader){
